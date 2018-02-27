@@ -10,7 +10,7 @@ WORKDIR /home
 RUN wget http://ffmpeg.org/releases/ffmpeg-3.0.1.tar.bz2
 RUN tar -xvf ffmpeg-3.0.1.tar.bz2
 WORKDIR /home/ffmpeg-3.0.1
-RUN ./configure && make && make install
+RUN /configure && make && make install
 
 WORKDIR /home
 RUN git clone https://github.com/ackimball/autocolorization
@@ -25,7 +25,7 @@ RUN git clone https://github.com/torch/distro.git ~/torch --recursive
 WORKDIR /home/torch 
 RUN bash install-deps
 RUN chmod 777 install.sh
-RUN ./install.sh
+RUN /install.sh
 
 WORKDIR /home
 RUN luarocks install graphicsmagick # upgrade
